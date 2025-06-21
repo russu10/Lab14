@@ -34,7 +34,7 @@ class View(ft.UserControl):
 
 
         self._btnCerca = ft.ElevatedButton(text="Cerca Percorso Massimo",
-                                           on_click=self._controller.handleCerca)
+                                           on_click=self._controller.handleCerca, disabled=True)
 
         self._ddNode = ft.Dropdown(label="Node")
         cont2 = ft.Container(self._ddNode, width=250, alignment=ft.alignment.top_left)
@@ -42,7 +42,7 @@ class View(ft.UserControl):
         ], alignment=ft.MainAxisAlignment.CENTER)
 
         self._btnRicorsione = ft.ElevatedButton(text="Ricorsione",
-                                           on_click=self._controller.handleRicorsione)
+                                           on_click=self._controller.handleRicorsione, disabled = True)
 
         row3 = ft.Row([ft.Container(self._btnRicorsione, width=250)
                        ], alignment=ft.MainAxisAlignment.CENTER)
@@ -52,6 +52,7 @@ class View(ft.UserControl):
         self._page.controls.append(row3)
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
         self._page.controls.append(self.txt_result)
+        self._controller.fillDDStrores()
         self._page.update()
 
 
